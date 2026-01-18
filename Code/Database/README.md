@@ -13,7 +13,7 @@
 - **Recommendation** – Preventive recommendations generated after incidents
 
 
-  ### Indexes and Views
+### Indexes and Views
 
 To ensure high performance and scalability, especially when handling millions of records, critical columns such as school_id, incident_date, and zone_id are indexed. These indexes significantly speed up searches, filtering, and join operations, allowing queries to return results almost instantly even on large datasets.
 
