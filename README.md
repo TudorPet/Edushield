@@ -5,6 +5,8 @@ EduShield is an educational database project designed to support the analysis, m
 
 This project was developed for participation in **EDB StartUP 2026**, organized by **Adfaber**, and serves as a proof of concept for how data-driven approaches can improve cybersecurity awareness and preparedness in schools.
 
+Further information is available in the project’s directories.
+
 ---
 
 ## Project Purpose
