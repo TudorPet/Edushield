@@ -34,7 +34,7 @@ ofstream fout("output.out");
 float MultiplierLow = 1, MultiplierMedium = 1.25, MultiplierHigh = 1.5; // Multipliers - based on the incident type, decided by the user - change if needed
 int HighLimit = 500, MediumLimit = 250; // Score limits - change if needed
 
-int ZoneId, AttackId, IncidentId; // Declaration of input vars
+int ZoneId, AttackId, IncidentId; // Declaration of global vars
 float Severity;
 string ZoneName, AttackName, AttackImpact;
 
@@ -114,13 +114,21 @@ int main() {
     cout << "Paste input? (Y/N): ";
     char tempc2;
     cin >> tempc2;
-
-    if (tempc2 != 'N' && tempc2 != 'Y') {
+    if ((tempc2 != 'N' && tempc2 != 'n') && (tempc2 != 'Y' && tempc2 != 'y')) {
         cout << "Incorrect input.";
         return 0;
     }
 
-    if (tempc2 == 'N') {                // Input from console
+    cout << "Output with Risk Levels? (Y/N): ";
+    char tempc;
+    cin >> tempc;
+    if ((tempc != 'N' && tempc != 'n') && (tempc != 'Y' && tempc != 'y')) {
+        cout << "Incorrect input.";
+        return 0;
+    }
+
+
+    if (tempc2 == 'N' || tempc2 == 'n') {   // Input from console
         cout << "Insert IncidentId: ";
         cin >> IncidentId;
         cout << "Insert Zone: ";
@@ -158,7 +166,7 @@ int main() {
                 v[zoneindex].Medium++;
             else if (type == 'H')
                 v[zoneindex].High++;
-
+            float tempval = v[zoneindex].Severity;
             v[zoneindex].Severity += Severity * v[zoneindex].Multiplier;
 
             int NewIndex;
@@ -169,9 +177,11 @@ int main() {
 
             }
             else {
-                NewIndex = zoneindex;;
-                cout << "This incident creates a NEW most dangerous zone (ID "
-                << ZoneId << "). Take immediate action!" << '\n';
+                NewIndex = zoneindex;
+                if (tempval < MaxSeverity)
+                    cout << "This incident creates a NEW most dangerous zone (ID " << ZoneId << "). Take immediate action!" << '\n';
+                else
+                    cout << "This affected zone (ID " << ZoneId << ") was already the most dangerous. Take immediate action!" << '\n';
                 displayrisk(v[zoneindex]);
             }
             if(v[NewIndex].Severity >= HighLimit)
@@ -193,13 +203,16 @@ int main() {
         fout << v[i].Low << " ";
         fout << v[i].Medium << " ";
         fout << v[i].High << " ";
-        if(v[i].Severity >= HighLimit)
-            fout << "Risk Level: HIGH" << '\n';
-        else
-            if (v[i].Severity >= MediumLimit)
-                fout << "Risk Level: MEDIUM" << '\n';
+        if (tempc == 'Y' || tempc == 'y')
+            if(v[i].Severity >= HighLimit)
+                fout << "Risk Level: HIGH" << '\n';
             else
-                fout << "Risk Level: LOW" << '\n';
+                if (v[i].Severity >= MediumLimit)
+                    fout << "Risk Level: MEDIUM" << '\n';
+                else
+                    fout << "Risk Level: LOW" << '\n';
+        else
+            fout << '\n';
     }
 
 
