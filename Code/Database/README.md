@@ -1,1 +1,13 @@
-
+### Core Entities
+- **School** – Represents educational institutions
+- **Zone** – Logical or physical areas within a school (e.g. laboratory, administration, staff areas)
+- **Incident** – Reported cybersecurity events
+- **Attack_Type** – Classification of cyber attacks
+- **User** – Individuals involved in incidents (students, staff, administrators)
+- **Incident_User** – Association between incidents and involved users
+- **Incident_Detection** – Detection event details
+- **Detection_Method** – Methods used to detect incidents
+- **Incident_Prevention** – Preventive actions linked to incidents
+- **Prevention_Measure** – Defined preventive measures
+- **Training_Session** – Cybersecurity training activities
+- **Recommendation** – Preventive recommendations generated after incidents
