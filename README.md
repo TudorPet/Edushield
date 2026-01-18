@@ -19,7 +19,7 @@ The system is intended for **educational and demonstrative purposes**.
 ---
 
 ## Database Structure
-The database models the full lifecycle of a cybersecurity incident, from detection to response and prevention. It is further explained in the code folder of this project.
+The database models the full lifecycle of a cybersecurity incident, from detection to response and prevention. It is further explained in the code/database.
 
 ---
 
