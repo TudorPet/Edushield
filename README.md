@@ -69,7 +69,7 @@ This project was created for **EDB StartUP 2026**, an initiative by **Adfaber**,
 ---
 
 ## Disclaimer
-EduShield is not a real cybersecurity monitoring system. All scenarios, data, and analyses are simulated for educational and demonstration purposes only.
+EduShield is not a real cybersecurity monitoring system, it is a concept and should not be implemented until full development. All scenarios, data, and analyses are simulated for educational and demonstration purposes only.
 
 ---
 
